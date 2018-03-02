@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>FastPitchApp</title>
-    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Fast Pitch!</title>
+    
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Roboto|Josefin+Sans|Pangolin|Shadows+Into+Light" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/navbar" %>
+    <%= render "layouts/alerts" %> 
+    <%= yield %> 
   </body>
 </html>
