@@ -1,0 +1,39 @@
+<%= form_tag "/questions", method: :post do%>
+  <div>
+    <%=select_tag :advantage,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>Clearly articulated the need, approach and competitive advantage</label>
+  </div>
+
+  <div>
+    <%=select_tag :engaged,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>Engaged you as a potential supporter and left you wanting to know more</label>
+  </div>
+
+  <div>
+    <%=select_tag :impact,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>Clearly communicated impact</label>
+  </div>
+
+  <div>
+    <%=select_tag :ask,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>Clear ask</label>
+  </div>
+
+  <div>
+    <%=select_tag :style,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>Presentation style</label>
+  </div>
+
+  <div>
+    <%=select_tag :inspiration,options_for_select([1,2,3,4,5]), prompt: " - Select Plan - "%>
+    <label>inspiration factor</label>
+  </div>
+
+  <div>
+    <label for="">Comments and Suggestions</label>
+      <div>
+        <textarea name="coments" cols="50" rows="5"></textarea>
+      </div>
+  </div>
+
+<%end%>

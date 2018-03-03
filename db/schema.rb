@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302115951) do
+ActiveRecord::Schema.define(version: 20180303231233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "presenter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "presenter_questions", force: :cascade do |t|
     t.integer  "presenter_id"
@@ -39,6 +46,13 @@ ActiveRecord::Schema.define(version: 20180302115951) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "question_presenters", force: :cascade do |t|
+    t.integer  "question_id"
+    t.integer  "presenter_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.datetime "created_at", null: false
@@ -47,8 +61,11 @@ ActiveRecord::Schema.define(version: 20180302115951) do
 
   create_table "scores", force: :cascade do |t|
     t.integer  "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "question_id"
+    t.integer  "presenter_id"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
