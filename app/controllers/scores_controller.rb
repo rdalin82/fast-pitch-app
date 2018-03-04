@@ -1,10 +1,8 @@
 class ScoresController < ApplicationController
   # before_action :authenticate_user!
   def index
-    sort_attribute = params[:sort_by] || 'points'
-    sort_attribute_order = params[:sort_order] || 'asc'
-    @scores = Score.all.order(sort_attribute => sort_attribute_order)
-    render 'index.html.erb'
+    @presenters = Presenter.all
+    @scores = Score.order(points: :desc)
   end
 
   def new

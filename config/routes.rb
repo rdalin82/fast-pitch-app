@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   get '/scores' => 'scores#index'
   get '/scores/new/:id' => 'scores#new'
   post '/scores' => 'scores#create'
-  get '/scores/:id' => 'scores#show'
   get '/scores/:id/edit' => 'scores#edit'
   patch '/scores/:id' => 'scores#update'
   delete '/scores/:id' => 'scores#destroy'
