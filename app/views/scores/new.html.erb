@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Checking</h1>
+  <%=form_tag '/scores', method: :post do %>
+    <%@questions.each do |question| %>
+      <div>
+        <%=select_tag  :question_points, options_for_select([1,2,3,4,5]), prompt: " - Select Plan - ",:name => "questions[][points]"%>
+        <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
+        <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
+        <%=hidden_field_tag :questions_user_id, 1, :name=>"questions[][user_id]"%>
+
+        <label><%=question.content%></label>
+      </label>
+    </div>
+  <%end%>
+  <button type="submit">Submit</button>
+<%end%>
+</div>

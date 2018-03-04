@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   delete '/questions/:id' => 'questions#destroy'
 
   get '/scores' => 'scores#index'
-  get '/scores/new' => 'scores#new'
+  get '/scores/new/:id' => 'scores#new'
   post '/scores' => 'scores#create'
   get '/scores/:id' => 'scores#show'
   get '/scores/:id/edit' => 'scores#edit'
