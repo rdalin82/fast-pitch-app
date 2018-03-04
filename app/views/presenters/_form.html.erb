@@ -1,32 +1,16 @@
-<% if @presenters.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@presenters.errors.count, "error") %> prohibited this presenter from being saved:</h2>
-    <ul>
-    <% @presenters.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @user do |form| %>
-  <%= form.text_field :email %>
-  <%= form.submit %>
-<% end %>
-
 <div class="form-group">
   <label for="name">Name</label>
-  <input type="text" class="form-control" value="<% @presenter.name %>">
+  <input type="text" class="form-control" name="name" value="<% @presenter.name %>" >
 </div>
 <div class="form-group">
   <label for="photo">Photo</label>
-  <input type="text" class="form-control" value="<% @presenter.photo %>">
+  <input type="text" class="form-control" name="photo" value="<% @presenter.photo %>">
 </div>
- <div class="form-group">
-  <label for="issue">Comments</label>
-  <input type="text" class="form-control" value="<%= @presenter.comments %>">
+<div class="form-group">
+  <label for="issue">Comment</label>
+  <input type="text" class="form-control" name="comment" value="<%= @presenter.comment %>">
 </div>
 <div class="form-group">
   <label for="description">Points</label>
-  <input type="text" class="form-control" value="<% @presenter.points %>">
+  <input type="text" class="form-control" name="points" value="<% @presenter.points %>">
 </div>
