@@ -11,6 +11,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
         <% if current_user %>
+          <li><a href="/presenters">Presenters</a></li>
           <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
         <% else %>
           <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

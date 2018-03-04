@@ -1,5 +1,5 @@
 class ScoresController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
     @presenters = Presenter.all
     @scores = Score.order(points: :desc)
