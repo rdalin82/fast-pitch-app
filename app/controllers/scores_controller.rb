@@ -1,5 +1,5 @@
 class ScoresController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   def index
     sort_attribute = params[:sort_by] || 'points'
     sort_attribute_order = params[:sort_order] || 'asc'
