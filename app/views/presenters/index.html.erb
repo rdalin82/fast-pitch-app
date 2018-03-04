@@ -14,10 +14,11 @@
         <div class="col-md-3">
           <div class="card-block">
             <div class="well well-sm">
-              <a href="/presenters/<%= presenter.id %>">
+              <a href="/scores/new">
               <%= presenter.photo %>
               <%= presenter.name %>
-              </a>
+              <br>
+              <%= link_to "Rank Presenter", "/scores/new", class: "btn btn-success" %>
             </div>
           </div>
         </div>
