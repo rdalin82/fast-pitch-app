@@ -9,3 +9,17 @@ body {
   background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+.card {
+  margin: 0 0 30px 30px;
+  text-align: center;
+}
+
+.padding-top {
+  padding-top: 15px;
+}
+
+.well {
+  position: relative;
+  background-color: rgba(225, 255, 255, 0.4);
+}

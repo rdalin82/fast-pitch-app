@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>PRESENTERS</h1>
+</div>
+<div class="container padding-top">
+  <div class="btn-group">
+    <button class="btn-md" a href="/presenters?sort_by=name">Sort Presenters</a></button>
+  </div>
+  <br>
+  <br>
+  <div class="card">
+    <% @presenters.each_slice(3) do |three_presenters| %>
+    <div id="row">
+      <% three_presenters.each do |presenter| %>
+        <div class="col-md-3">
+          <div class="card-block">
+            <div class="well well-sm">
+              <a href="/presenters/<%= presenter.id %>">
+              <%= presenter.photo %>
+              <%= presenter.name %>
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
