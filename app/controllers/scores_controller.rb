@@ -17,7 +17,7 @@ class ScoresController < ApplicationController
     params[:questions].each do |score_params|
       Score.create(score_params)
     end
-      redirect_to '/scores/new'
+      redirect_to '/presenters'
   end
 
   def edit
