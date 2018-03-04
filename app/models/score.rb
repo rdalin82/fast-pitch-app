@@ -1,5 +1,5 @@
 class Score < ApplicationRecord
-  belongs_to :Questions
+  belongs_to :Questions, required: false
 
   def change_score
     if user.id = score.find(user_id) || user.admin
