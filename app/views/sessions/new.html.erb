@@ -1,0 +1,14 @@
+<div class="container padding-top">
+  <h1>Login</h1>
+  <%= form_tag "/login", method: :post do %>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+   <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+  <input type="submit" value="Log In">
+  <% end %>
+</div>
