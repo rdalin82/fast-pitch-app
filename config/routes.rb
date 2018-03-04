@@ -33,5 +33,4 @@ Rails.application.routes.draw do
   patch '/scores/:id' => 'scores#update'
   delete '/scores/:id' => 'scores#destroy'
 
-  get '/leaderboards/:id' => 'leaderboards#show'
 end
