@@ -7,6 +7,7 @@ class PresentersController < ApplicationController
   end
 
   def new
+    @presenter = Presenter.new
     render "new.html.erb"
   end
 
