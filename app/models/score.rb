@@ -31,13 +31,24 @@ class Score < ApplicationRecord
     end
   end
 
-  def self.sum_presenters
-
-    hash.each do |key,value|
-       x= Score.find(key)
-      puts x
+  def self.sum_presenters_index
+    hash ={}
+    scores = Score.group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      hash[x.presenter.name]=value
     end
+    hash
+  end
 
+  def self.sum_presenters_new(current_user_id)
+    hash ={}
+    scores = Score.where("user_id =?", current_user_id).group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      hash[x.presenter.name]=value
+    end
+    hash
   end
 
 end

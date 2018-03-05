@@ -1,5 +1,6 @@
 <div class="container">
   <h1><%=@presenter.name%></h1>
+  
   <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
     <div class="col-md-3">
       <div class="card-block">
@@ -10,6 +11,7 @@
       </div>
     </div>
   <%end%>
+
   <%=form_tag '/scores', method: :post do %>
     <%@questions.each do |question| %>
       <div class="row">

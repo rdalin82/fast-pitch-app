@@ -35,4 +35,6 @@ Rails.application.routes.draw do
   patch '/scores/:id' => 'scores#update'
   delete '/scores/:id' => 'scores#destroy'
 
+  resources :comments 
+
 end
