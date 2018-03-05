@@ -31,4 +31,12 @@ class ScoresController < ApplicationController
     )
     redirect_to '/'
   end
+
+  def csv
+    @scores =Score.joins(:presenter).merge(Presenter.order(:name))
+    respond_to do |format|
+      format.html
+      format.csv { send_data @scores.to_csv}
+    end
+  end
 end
