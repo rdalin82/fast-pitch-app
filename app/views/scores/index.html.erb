@@ -1,0 +1,22 @@
+<h1>Leaderboard</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Presenter ID</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td><%= score.presenter_id %></td>
+        <td><%= score.points %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
