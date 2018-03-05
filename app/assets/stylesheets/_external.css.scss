@@ -1,13 +1,18 @@
-body {
-  position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
-  background: #a73737;
-  color: black !important;
-  background: #2193b0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+html {
+  height: 100%;
+}
 
+body {
+  background-image: image-url('fastpitch1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+@media (min-width: 979px) {
+  body {
+    padding-bottom: 30px;
+  }
 }
 
 .card {
@@ -19,7 +24,55 @@ body {
   padding-top: 15px;
 }
 
-.well {
-  position: relative;
-  background-color: rgba(225, 255, 255, 0.4);
+.padding-bottom {
+  padding-bottom: 15px;
+}
+
+.jumbotron {
+    background:url(./bg_slide.png) repeat 0 0 #ebebea;
+    margin:0;
+    line-height: 20px;
+    font-size: 13px;
+}
+
+.jumbotron .block-title {
+    margin-bottom: 15px;
+}
+
+h1 {
+  color: #303030;
+  font-variant: small-caps;
+  font-family: 'Pangolin';
+  text-shadow: 2px 2px 2px #000;
+  font-style: bold;
+  font-size: 6em;
+  letter-spacing: 3px;
+}
+
+h2 {
+  color: #303030;
+  font-family: 'Roboto';
+  text-shadow: 1px 1px 1px #000;
+  font-style: bold;
+  font-size: 2.5em;
+}
+
+
+h3 {
+  color: #303030;
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1.7em;
+}
+
+h4 {
+  color: #303030;
+  font-family: 'Roboto';
+  font-size: 1.3em;
+}
+
+h5 {
+  color: #303030;
+  font-family: 'Roboto';
+  font-size: 1.2em;
 }

@@ -1,14 +1,24 @@
-<div class="container padding-top">
-  <h1>Login</h1>
-  <%= form_tag "/login", method: :post do %>
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" name="name">
-  </div>
-   <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-  <input type="submit" value="Log In">
-  <% end %>
+<div class="container">
+<br>
+    <div id="login-wraper">
+      <%= form_tag "/login", method: :post do %>
+        <form class="form login-form">
+            <legend>Sign in to <span class="blue">Fast Pitch!</span></legend>
+
+            <div class="body">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" name="username">
+
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <br>
+
+            <div class="footer">
+
+                <button type="submit" class="btn btn-success">Login</button>
+            </div>
+        </form>
+      <% end %>
+    </div>
 </div>

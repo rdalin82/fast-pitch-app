@@ -1,20 +1,21 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="block-title"><%=@presenter.name%></h1>
+  </div>
+</div>
 <div class="container">
-  <h1><%=@presenter.name%></h1>
-  
-  <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
-    <div class="col-md-3">
-      <div class="card-block">
-        <div class="well well-sm">
-          <%=key%>
-          <%=value%>
-        </div>
-      </div>
-    </div>
-  <%end%>
-
+  <ul class="list-group">
+    <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
+      <li class="list-group-item">
+        <%=key%>
+        <%=value%>
+      </li>
+    <%end%>
+  </ul>
   <%=form_tag '/scores', method: :post do %>
     <%@questions.each do |question| %>
       <div class="row">
+        <br>
         <label><%=question.content%></label>
       </div>
       <div class="row">

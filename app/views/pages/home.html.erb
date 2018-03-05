@@ -1,1 +1,19 @@
-<h2>Hello world</h2>
+<div class="container">
+    <div id="login-wraper">
+        <form class="form login-form">
+            <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
+            <div class="body">
+            <% if current_user %>
+              <%= link_to "Check out our presenters!", "/presenters" %>
+              <h4>or</h4>
+              <%= link_to "View the leaderboard!", "/scores" %>
+            <% else %>
+              <a href="/login" class="btn btn-blue"> SIGN IN</a>
+              <br>
+              <h4>Don't have an account yet?</h4>
+              <a href="/signup" class="btn btn-blue"> SIGN UP</a>
+            <% end %>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,21 +1,17 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-    </div>
-
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</span></a></li>
         <% if current_user %>
-          <li><a href="/presenters">Presenters</a></li>
-          <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+          <ul class="nav navbar-nav navbar-left">
+            <li><a href="/presenters"><i class="fas fa-bullhorn" aria-hidden="true"></i> Presenters</a></li>
+            <li><a href="/scores"><i class="fas fa-clipboard fa-2x" aria-hidden="true"></i> Leaderboard</a>
+            <li><a href="/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i> Logout</a></li>
+          </ul>
         <% else %>
-          <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+          <li><a href="/users/new"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></i> Sign Up</a></li>
+          <li><a href="/login"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Login</a></li>
         <% end %>
       </ul>
     </div>
