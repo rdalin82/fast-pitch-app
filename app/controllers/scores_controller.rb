@@ -1,8 +1,13 @@
 class ScoresController < ApplicationController
   before_action :authenticate_user!
   def index
-    @presenters = Presenter.all
-    @scores = Score.order(points: :desc)
+    @hash ={}
+    scores = Score.group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      @hash[x.presenter.name]=value
+    end
+    @hash
   end
 
   def new

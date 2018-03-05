@@ -31,4 +31,13 @@ class Score < ApplicationRecord
     end
   end
 
+  def self.sum_presenters
+
+    hash.each do |key,value|
+       x= Score.find(key)
+      puts x
+    end
+
+  end
+
 end
