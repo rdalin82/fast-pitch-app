@@ -1,20 +1,29 @@
-
 <div class="container">
-  <h1><%=@presenter.name%></h1></h1>
+  <h1><%=@presenter.name%></h1>
+  <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
+    <div class="col-md-3">
+      <div class="card-block">
+        <div class="well well-sm">
+          <%=key%>
+          <%=value%>
+        </div>
+      </div>
+    </div>
+  <%end%>
   <%=form_tag '/scores', method: :post do %>
     <%@questions.each do |question| %>
-    <div class="row">
-    <label><%=question.content%></label>
-</div>
       <div class="row">
-        <%=select_tag  :question_points, options_for_select([1,2,3,4,5]), prompt: " - Select Plan - ",:name => "questions[][points]"%>
+        <label><%=question.content%></label>
       </div>
-        <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
-        <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
-        <%=hidden_field_tag :questions_user_id, @current_user.id, :name=>"questions[][user_id]"%>
-        <br>
+      <div class="row">
+        <%=select_tag :question_points, options_for_select([1,2,3,4,5]), prompt: " - Select Score - ",:name => "questions[][points]"%>
+      </div>
+      <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
+      <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
+      <%=hidden_field_tag :questions_user_id, @current_user.id, :name=>"questions[][user_id]"%>
+      <br>
 
+    <%end%>
+    <button type="submit">Submit</button>
   <%end%>
-  <button type="submit">Submit</button>
-<%end%>
 </div>

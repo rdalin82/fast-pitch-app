@@ -7,10 +7,15 @@ class ScoresController < ApplicationController
        x = Score.find_by(presenter_id: key)
       @hash[x.presenter.name]=value
     end
-    @hash
   end
 
   def new
+    @hash ={}
+    scores = Score.where("user_id =?", current_user.id).group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      @hash[x.presenter.name]=value
+    end
     @presenter = Presenter.find(params[:id])
     @questions = Question.all
   end
