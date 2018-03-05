@@ -6,18 +6,21 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>Fast Pitch!</title>
-    
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Roboto|Josefin+Sans|Pangolin|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Roboto|Josefin+Sans|Pangolin|Shadows+Into+Light|PT+Sans:400,700|Lato:100,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
 
   </head>
 
   <body>
+    <%= render "layouts/alerts" %>
     <%= render "layouts/navbar" %>
-    <%= render "layouts/alerts" %> 
-    <%= yield %> 
+    <%= yield %>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <h1>Leaderboard</h1>
-
-<table>
+<div class="container">
+<table class="table">
   <thead>
     <tr>
       <th>Presenter ID</th>
@@ -9,14 +9,14 @@
   </thead>
 
   <tbody>
-    <% @scores.each do |score| %>
+    <% @hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value | %>
       <tr>
-        <td><%= score.presenter_id %></td>
-        <td><%= score.points %></td>
+        <td><%= key%></td>
+        <td><%= value%></td>
       </tr>
     <% end %>
 
   </tbody>
 </table>
-
+</div>
 <br>

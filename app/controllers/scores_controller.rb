@@ -1,11 +1,21 @@
 class ScoresController < ApplicationController
   before_action :authenticate_user!
   def index
-    @presenters = Presenter.all
-    @scores = Score.order(points: :desc)
+    @hash ={}
+    scores = Score.group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      @hash[x.presenter.name]=value
+    end
   end
 
   def new
+    @hash ={}
+    scores = Score.where("user_id =?", current_user.id).group('presenter_id').sum(:points)
+    scores.each do |key,value|
+       x = Score.find_by(presenter_id: key)
+      @hash[x.presenter.name]=value
+    end
     @presenter = Presenter.find(params[:id])
     @questions = Question.all
   end
@@ -28,5 +38,13 @@ class ScoresController < ApplicationController
       :score => params[:score]
     )
     redirect_to '/'
+  end
+
+  def csv
+    @scores =Score.joins(:presenter).merge(Presenter.order(:name))
+    respond_to do |format|
+      format.html
+      format.csv { send_data @scores.to_csv}
+    end
   end
 end
