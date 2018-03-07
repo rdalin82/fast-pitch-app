@@ -4,23 +4,20 @@
   </div>
 </div>
 <div class="container padding-top">
-  <div class="btn-group">
-    <button class="btn-md" a href="/presenters?sort_by=name">Sort Presenters</a></button>
-  </div>
-  <br>
-  <br>
+<br>
+<br>
   <ul class="list-group">
       <% @presenters.each do |presenter| %>
         <%presenter.ranks.each do |rank|%>
-              <%if @current_user.id == rank.user_id %>
+            <%if @current_user.id == rank.user_id %>
               <li class="list-group-item"><h3><%= presenter.name %> </h3>
-                <%= link_to "Rank Presenter", "/scores/edit/#{presenter.id}", class: "btn btn-success" %>
+              <%= link_to "Rank Presenter", "/scores/edit/#{presenter.id}", class: "btn btn-success" %>
               </li>
-                <%else%>
-            <li class="list-group-item"><h3><%= presenter.name %> </h3>
+            <%else%>
+              <li class="list-group-item"><h3><%= presenter.name %> </h3>
               <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
             </li>
-        <%end%>
+            <%end%>
         <%end%>
       <% end %>
   </ul>
