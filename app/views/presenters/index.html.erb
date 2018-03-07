@@ -8,13 +8,12 @@
 <br>
   <ul class="list-group">
       <% @presenters.each do |presenter| %>
-        <%presenter.ranks.each do |rank|%>
+        <li class="list-group-item"><h3><%= presenter.name %> </h3>
+          <% presenter.ranks.each do |rank|%>
             <%if @current_user.id == rank.user_id %>
-              <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Rank Presenter", "/scores/edit/#{presenter.id}", class: "btn btn-success" %>
+              <%= link_to "Edit Ranking", "/scores/#{presenter.id}/edit", class: "btn btn-success" %>
               </li>
             <%else%>
-              <li class="list-group-item"><h3><%= presenter.name %> </h3>
               <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
             </li>
             <%end%>

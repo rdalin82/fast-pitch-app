@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306191019) do
+ActiveRecord::Schema.define(version: 20180307193417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20180306191019) do
     t.string   "photo"
     t.integer  "points"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "ranked",     default: false
   end
 
   create_table "question_presenters", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180306191019) do
     t.boolean  "admin",           default: false
     t.string   "first_name"
     t.string   "surname"
+    t.boolean  "ranked",          default: false
   end
 
 end

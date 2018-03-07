@@ -1,0 +1,5 @@
+class AddRankToPresenters < ActiveRecord::Migration[5.0]
+  def change
+    add_column :presenters, :ranked, :boolean, default: false
+  end
+end
