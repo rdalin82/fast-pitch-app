@@ -35,6 +35,12 @@ Rails.application.routes.draw do
   patch '/scores/:id' => 'scores#update'
   delete '/scores/:id' => 'scores#destroy'
 
-  resources :comments 
+  get '/comments' => 'comments#index'
+  get '/comments/new/:id' => 'comments#new'
+  post '/comments' => 'comments#create'
+  get '/comments/:id/edit' => 'comments#edit'
+  patch '/comments/:id' => 'comments#update'
+  delete '/comments/:id' => 'comments#destroy'
+
 
 end

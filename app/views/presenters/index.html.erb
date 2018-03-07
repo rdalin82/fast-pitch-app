@@ -10,12 +10,18 @@
   <br>
   <br>
   <ul class="list-group">
-    <% @presenters.each_slice(3) do |three_presenters| %>
-      <% three_presenters.each do |presenter| %>
-        <li class="list-group-item"><h3><%= presenter.name %> </h3>
-          <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
-        </li>
+      <% @presenters.each do |presenter| %>
+        <%presenter.ranks.each do |rank|%>
+              <%if @current_user.id == rank.user_id %>
+              <li class="list-group-item"><h3><%= presenter.name %> </h3>
+                <%= link_to "Rank Presenter", "/scores/edit/#{presenter.id}", class: "btn btn-success" %>
+              </li>
+                <%else%>
+            <li class="list-group-item"><h3><%= presenter.name %> </h3>
+              <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
+            </li>
+        <%end%>
+        <%end%>
       <% end %>
-    <% end %>
   </ul>
 </div>

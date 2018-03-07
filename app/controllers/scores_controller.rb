@@ -11,11 +11,20 @@ class ScoresController < ApplicationController
   end
 
   def create
+
+    presenter_id = params[:questions][0]['presenter_id']
+    if Rank.where(["user_id=? and presenter_id=?",current_user.id,presenter_id]).empty?
+      Rank.create(
+        :user_id => current_user.id,
+        :presenter_id => presenter_id,
+        :scored => true
+      )
+    end
     params.permit!
     params[:questions].each do |score_params|
       Score.create(score_params)
     end
-      redirect_to '/presenters'
+      redirect_to "/comments/new/#{presenter_id}"
   end
 
   def edit

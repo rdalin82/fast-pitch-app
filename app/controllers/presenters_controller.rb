@@ -3,6 +3,8 @@ class PresentersController < ApplicationController
     sort_attribute = params[:sort_by] || "name"
     sort_attribute_order = params[:sort_order] || "asc"
     @presenters = Presenter.all.order(sort_attribute => sort_attribute_order)
+    @score=Score.find_by()
+    @current_user =current_user
     render "index.html.erb"
   end
 

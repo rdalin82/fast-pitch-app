@@ -1,6 +1,13 @@
-<h1>Leave Comment about the Presenter</h1>
+<h1>Leave a comment about the presenter</h1>
 <hr>
 
-<%=form_tag '/comments', method: :post do %>
-
-<%end%>
+<div class="container">
+  <%=form_tag '/comments', method: :post do %>
+    <div class="form-group">
+      <label for="comments">Comments</label>
+      <textarea class="form-control" id="comments" name="content" rows="3"></textarea>
+    </div>
+    <%=hidden_field_tag :presenter_id, params[:id]%>
+    <button type="submit" class="btn btn-info">Submit</button>
+  <%end%>
+</div>
