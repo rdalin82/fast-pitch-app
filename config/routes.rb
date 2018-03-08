@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/scores/new/:id' => 'scores#new'
   post '/scores' => 'scores#create'
   get '/scores/:id/edit' => 'scores#edit'
-  patch '/scores/:id' => 'scores#update'
+  patch '/scores/update' => 'scores#update'
   delete '/scores/:id' => 'scores#destroy'
 
   get '/comments' => 'comments#index'

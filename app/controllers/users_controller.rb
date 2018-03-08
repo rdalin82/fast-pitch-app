@@ -11,6 +11,14 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
     )
     if user.save
+      presenters = Presenter.all
+      presenters.each do |presenter|
+        Rank.create(
+          :scored => false,
+          :user_id=>user.id,
+          :presenter_id => presenter.id
+      )
+    end 
       session[:user_id] = user.id
       flash[:success] = 'Successfully created account!'
       redirect_to '/presenters'

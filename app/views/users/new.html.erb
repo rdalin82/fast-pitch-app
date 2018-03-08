@@ -2,20 +2,20 @@
   <div class="row">
     <div class="span6">
       <div id="register-wraper">
-          <form id="register-form" class="form">
             <%= form_tag '/users', method: :post do  %>
+            <form id="register-form" class="form">
               <legend>Register to <span class="blue">Fast Pitch!</span></legend>
 
               <div class="body">
 
                 <label for="first_name">First Name</label>
-                <input type="first_name" class="form-control" name="first_name">
+                <input type="text" class="form-control" name="first_name">
 
                 <label for="surname">Last Name</label>
-                <input type="surname" class="form-control" name="surname">
+                <input type="text" class="form-control" name="surname">
 
                 <label for="username">Username</label>
-                <input type="username" class="form-control" name="username">
+                <input type="text" class="form-control" name="username">
 
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password">
@@ -29,7 +29,7 @@
               <div class="footer">
                   <button type="submit" class="btn btn-success">Register</button>
               </div>
-          </form>
+            </form>
           <% end %>
       </div>
     </div>
