@@ -8,9 +8,18 @@
 <br>
   <ul class="list-group">
       <% @presenters.each do |presenter| %>
-        <li class="list-group-item"><h3><%= presenter.name %> </h3>
-          <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
-          </li>
+        <%presenter.ranks.each do |rank|%>
+            <%if @current_user.id == rank.user_id && rank.scored == true %>
+              <li class="list-group-item"><h3><%= presenter.name %> </h3>
+              <%= link_to "Rank Presenter", "/scores/#{presenter.id}/edit", class: "btn btn-success" %>
+              </li>
+            <%elsif @current_user.id == rank.user_id && rank.scored == false%>
+              <li class="list-group-item"><h3><%= presenter.name %> </h3>
+              <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
+            </li>
+            <%else%>
+            <%end%>
+        <%end%>
       <% end %>
   </ul>
 </div>

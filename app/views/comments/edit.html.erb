@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Leave a comment about the presenter</h1>
+  <hr>
+
+  <div class="container">
+    <%=form_tag "/comments/#{@comment.id}", method: :patch do %>
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea class="form-control" id="comments" name="content" rows="3"><%=@comment.content%></textarea>
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
+    <%end%>
+</div>

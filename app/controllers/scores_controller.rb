@@ -13,8 +13,13 @@ class ScoresController < ApplicationController
   def create
 
     presenter_id = params[:questions][0]['presenter_id']
-    if Rank.where(["user_id=? and presenter_id=?",current_user.id,presenter_id]).empty?
-      Rank.create(
+    rank = Rank.find_by(["user_id=? and presenter_id=?",current_user.id,presenter_id.to_i])
+    if rank
+      rank.update(
+        :scored => true
+      )
+    elsif rank.empty?
+      rank.create(
         :user_id => current_user.id,
         :presenter_id => presenter_id,
         :scored => true
@@ -28,15 +33,26 @@ class ScoresController < ApplicationController
   end
 
   def edit
-    @score = Score.find(params[:id])
+    @hash =Score.sum_presenters_new(current_user.id)
+    @presenter = Presenter.find(params[:id])
+    @questions = Question.all
+    @current_user = current_user
   end
 
   def update
-    score = Score.find(params[:id])
-    score.update(
-      :score => params[:score]
-    )
-    redirect_to '/'
+    params.permit!
+    params[:questions].each do |score_params|
+      score = Score.find_by(['question_id=? and user_id=?',score_params['question_id'],current_user.id])
+      score.update(score_params)
+    end
+
+    presenter_id = params[:questions][0]['presenter_id']
+    comment = Comment.find_by(["presenter_id=? and user_id=?", presenter_id, current_user.id])
+    if comment == nil
+      redirect_to "/comments/new/#{presenter_id}"
+    else
+      redirect_to "/comments/#{comment.id}/edit"
+    end
   end
 
   def csv

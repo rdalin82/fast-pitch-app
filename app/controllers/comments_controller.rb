@@ -13,8 +13,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find_by("id=?",params[:id])
   end
 
   def update
-  end 
+    comment = Comment.find_by("id=?",params[:id])
+    comment.update(:content=>params[:content])
+    redirect_to '/presenters'
+  end
 end
