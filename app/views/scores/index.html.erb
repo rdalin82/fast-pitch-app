@@ -4,23 +4,25 @@
   </div>
 </div>
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Presenter Name</th>
-      <th>Points</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value | %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= key%></td>
-        <td><%= value%></td>
+        <th>Presenter Name</th>
+        <th>Points</th>
       </tr>
-    <% end %>
+    </thead>
 
-  </tbody>
-</table>
+    <tbody>
+      <% @hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value | %>
+        <tr>
+          <td><%= key%></td>
+          <td><%= value%></td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <%= link_to "Go to Final Rankings", "/final_ranks", class: "btn btn-success" %>
 </div>
+
 <br>

@@ -1,0 +1,2 @@
+module FinalRanksHelper
+end

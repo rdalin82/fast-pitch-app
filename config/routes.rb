@@ -42,5 +42,10 @@ Rails.application.routes.draw do
   patch '/comments/:id' => 'comments#update'
   delete '/comments/:id' => 'comments#destroy'
 
-
+  get '/final_ranks' => 'final_ranks#index'
+  get '/final_ranks/new/:id' => 'final_ranks#new'
+  post '/final_ranks' => 'final_ranks#create'
+  get '/final_ranks/:id/edit' => 'final_ranks#edit'
+  patch '/final_ranks/:id' => 'final_ranks#update'
+  delete '/final_ranks/:id' => 'final_ranks#destroy'
 end

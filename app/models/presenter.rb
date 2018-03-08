@@ -3,4 +3,5 @@ class Presenter < ApplicationRecord
   has_many :comments
   has_many :scores
   has_many :ranks
+  has_many :final_ranks
 end
