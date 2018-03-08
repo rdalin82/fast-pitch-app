@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_admin!
+  def index
+    @questions = Question.all
+  end
 
   def new
     @questions = Question.all
@@ -13,6 +17,11 @@ class QuestionsController < ApplicationController
     else
       redirect_to '/questions/new'
     end
+  end
+
+  def show
+    @question = Question.find(params[:id])
+    render 'show.html.erb'
   end
 
   def edit

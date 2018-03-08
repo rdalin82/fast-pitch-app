@@ -3,11 +3,12 @@
 
 <%=form_tag "/questions/#{@question.id}", method: :patch do %>
 
-    <label >What do you want to ask the judges?</label>
+    <label >What question would you like to ask?</label>
     <div class="input-group input-group-lg">
      <input value="<%=@question.content%>"name='content' type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-lg">
    </div>
-   <button type="submit" class="btn ">Create New Question</button>
+   <br>
+   <button type="submit" class="btn btn-success">Edit New Question</button>
 <%end%>
 
 <%=form_tag "/questions/#{@question.id}", method: :delete do %>
