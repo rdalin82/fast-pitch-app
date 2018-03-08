@@ -2,7 +2,7 @@
   <h2> What's your final ranking for <%= @presenter.name %>?</h2>
   <h3> Score from 1 to <%= Presenter.count %>:</h3>
   <%=form_tag '/final_ranks', method: :post do %>
-    <h3><%= number_field_tag :final_rank, @current_value, min: 1, max: 15, :step => 'any', class: "number" %></h3>
+    <h3><%= number_field_tag :final_rank, @current_value, min: 1, max: 5, :step => 'any', class: "number" %></h3>
       <%=hidden_field_tag :final_ranks_presenter_id, @presenter.id, :name=>"final_ranks[][presenter_id]"%>
       <%=hidden_field_tag :final_ranks_user_id, @current_user.id, :name=>"final_ranks[][user_id]"%>
     <button type="submit"> Submit Final Ranking</button>
