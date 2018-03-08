@@ -42,30 +42,84 @@ Presenter.create!(
   name: 'American Cancer Society'
 )
 
-User.create!(
-  name: 'Mike',
+user1=User.create!(
+  first_name: 'Mike',
+  surname:'Mikeson',
+  username:'Mike',
   password: 'password'
 )
 
-User.create!(
-  name: 'John',
+presenters = Presenter.all
+
+presenters.each do |presenter|
+  Rank.create!(
+    user_id: user1.id,
+    presenter_id: presenter.id,
+    scored: false
+)
+
+end
+user2=User.create!(
+  first_name: 'John',
+  surname: 'Johnoson',
+  username: 'John',
   password: 'password'
 )
 
-User.create!(
-  name: 'Jill',
+presenters.each do |presenter|
+  Rank.create!(
+    user_id: user2.id,
+    presenter_id: presenter.id,
+    scored: false
+)
+end
+
+
+user3=User.create!(
+  first_name: 'Jill',
+  surname:'Jillson',
+  username: 'Jill',
   password: 'password'
 )
 
-User.create(
-  name: 'Kim',
+presenters.each do |presenter|
+  Rank.create!(
+    user_id: user3.id,
+    presenter_id: presenter.id,
+    scored: false
+)
+end
+
+user4=User.create(
+  first_name: 'Kim',
+  surname:'Kimson',
+  username:'Kim',
   password: 'password'
 )
 
-User.create(
-  name: 'Robert',
+presenters.each do |presenter|
+  Rank.create!(
+    user_id: user4.id,
+    presenter_id: presenter.id,
+    scored: false
+)
+end
+
+user5=User.create(
+  first_name: 'Robert',
+  surname:'Robertson',
+  username:'Robert',
   password: 'password'
 )
+
+presenters.each do |presenter|
+  Rank.create!(
+    user_id: user5.id,
+    presenter_id: presenter.id,
+    scored: false
+)
+end
+
 scores = [1,2,3,4,5]
 questions =[1,2,3,4,5,6]
 
