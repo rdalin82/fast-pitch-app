@@ -1,16 +1,9 @@
-<div class="form-group">
-  <label for="name">Name</label>
-  <input type="text" class="form-control" name="name" value="<% @presenter.name %>" >
-</div>
-<div class="form-group">
-  <label for="photo">Photo</label>
-  <input type="text" class="form-control" name="photo" value="<% @presenter.photo %>">
-</div>
-<div class="form-group">
-  <label for="issue">Comment</label>
-  <input type="text" class="form-control" name="comment" value="<%= @presenter.comment %>">
-</div>
-<div class="form-group">
-  <label for="description">Points</label>
-  <input type="text" class="form-control" name="points" value="<% @presenter.points %>">
-</div>
+<%= form_tag url, method: verb do %>
+  <div class="form-group">
+    <div>
+      <%= label_tag :name %>
+      <input type="text" name="name" value="<%= @presenter.name %>">
+    </div>
+    <br>
+    <%= submit_tag message %>
+<% end %>

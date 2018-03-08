@@ -3,6 +3,15 @@
     <h1 class="block-title">Presenters</h2>
   </div>
 </div>
+<div class="container">
+  <% if @current_user.admin %>
+    <h3><%= link_to "Add Presenter", "/presenters/new" %></h3>
+    <br>
+    <% @presenters.each do |presenter| %>
+      <a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a>
+    <% end %>
+  <% end %>
+</div>
 <div class="container padding-top">
 <br>
 <br>
