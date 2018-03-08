@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     unless current_user && current_user.admin
-      redirect_to "/"
+      flash[:warning] = "You must be an admin to access this page."
+      redirect_to '/'
       return
     end
   end

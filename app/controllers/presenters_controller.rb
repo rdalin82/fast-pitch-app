@@ -1,4 +1,5 @@
 class PresentersController < ApplicationController
+  before_action :authenticate_admin!, except: [:index]
   def index
     sort_attribute = params[:sort_by] || 'name'
     sort_attribute_order = params[:sort_order] || 'asc'
@@ -14,11 +15,7 @@ class PresentersController < ApplicationController
 
   def create
     @presenter = Presenter.create(
-      presenter_id: params[:presenter_id],
-      name: params[:name],
-      photo: params[:photo],
-      points: params[:points],
-      comment: params[:comment],
+      name: params[:name]
     )
     if @presenter.save
       flash[:success] = 'Presenter Created!'
@@ -42,11 +39,7 @@ class PresentersController < ApplicationController
   def update
     @presenter = Presenter.find_by(id: params[:id])
     @presenter.update(
-    presenter_id: params[:presenter_id],
-    name: params[:name],
-    photo: params[:photo],
-    points: params[:points],
-    comment: params[:comment],
+    name: params[:name]
     )
     flash[:success] = 'Presenter Updated!'
     redirect_to '/presenters/#{@presenter.id}'

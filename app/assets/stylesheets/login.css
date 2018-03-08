@@ -101,9 +101,11 @@ body {
   border-radius: 15px;
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin-top: 25px;
   margin-bottom: 70px;
+  padding-left: 25px;
+  padding-right: 25px;
   padding-top: 25px;
   padding-bottom: 25px;
   background: white;
