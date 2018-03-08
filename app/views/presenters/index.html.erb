@@ -6,7 +6,6 @@
 <div class="container">
   <% if @current_user.admin %>
     <h3><%= link_to "Add Presenter", "/presenters/new" %></h3>
-    <h3><%= link_to "View Questions", "/questions" %></h3>
     <br>
     <h3><u>Edit Presenters:</u> </h3>
     <% @presenters.each do |presenter| %>
