@@ -4,6 +4,8 @@
             <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
             <div class="body">
             <% if current_user %>
+              <h2>Hi, <%= @current_user.username %>!</h2>
+              <br>
               <%= link_to "Check out our presenters!", "/presenters" %>
               <h4>or</h4>
               <%= link_to "View the leaderboard!", "/scores" %>
