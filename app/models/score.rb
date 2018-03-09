@@ -2,6 +2,7 @@ class Score < ApplicationRecord
   belongs_to :question, required: false
   belongs_to :user, required: false
   belongs_to :presenter, required: false
+  belongs_to :final_ranks, required: false
 
   def change_score
     if user.id = score.find(user_id) || user.admin

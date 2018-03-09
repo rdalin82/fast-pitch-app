@@ -21,7 +21,7 @@
         <%presenter.ranks.each do |rank|%>
             <%if @current_user.id == rank.user_id && rank.scored == true %>
               <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Rank Presenter", "/scores/#{presenter.id}/edit", class: "btn btn-success" %>
+              <%= link_to "Edit Presenter Ranking", "/scores/#{presenter.id}/edit", class: "btn btn-primary" %>
               </li>
             <%elsif @current_user.id == rank.user_id && rank.scored == false%>
               <li class="list-group-item"><h3><%= presenter.name %> </h3>

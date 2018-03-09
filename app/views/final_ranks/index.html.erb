@@ -1,16 +1,27 @@
 <div class="jumbotron">
   <div class="container">
-    <h1 class="block-title"><%= @current_user.username %>'s Ranking Board</h2>
+    <h1 class="block-title">Final Scores and Rankings</h1>
   </div>
 </div>
-<div class="container padding-top">
-<br>
-<br>
-  <ul class="list-group">
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Presenter Name</th>
+        <th>Points Given</th>
+        <th>Your Rank</th>
+      </tr>
+    </thead>
+
+    <tbody>
       <% @presenters.each do |presenter| %>
-        <li class="list-group-item"><h3><%= presenter.name %> </h3>
-          <%= link_to "Provide Final Ranking", "/final_ranks/new/#{presenter.id}", class: "btn btn-danger" %>
-          </li>
+        <tr>
+          <td><%= presenter.name %> </td>
+          <td> Points </td>
+          <td>Rank </td>
+        </tr>
       <% end %>
-  </ul>
+
+    </tbody>
+  </table>
 </div>

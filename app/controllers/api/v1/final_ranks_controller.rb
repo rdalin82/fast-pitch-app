@@ -1,17 +1,14 @@
-class FinalRanksController < ApplicationController
-  before_action :authenticate_user!
+class Api::V1::FinalRanksController < ApplicationController
   def index
-    sort_attribute = params[:sort_by] || 'name'
-    sort_attribute_order = params[:sort_order] || 'asc'
-    @points = Score.sum_presenters_new(current_user.id)
-    @presenters = Presenter.all.order(sort_attribute => sort_attribute_order)
+    @presenters = Presenter.all
     @current_user = current_user
-    render 'index.html.erb'
+    render "index.json.jbuilder"
   end
 
   def new
     @final_rank = FinalRank.new
     @presenter = Presenter.find_by(id: params[:id])
+    render "new.json.jbuilder"
   end
 
   def create
@@ -27,6 +24,10 @@ class FinalRanksController < ApplicationController
       )
     end
     params.permit!
-    redirect_to "/final_ranks"
+    if final_rank.save
+      render "index.json.jbuilder"
+    else
+      render json: { errors: @person.errors.full_messages }, status: 422
+    end
   end
 end
