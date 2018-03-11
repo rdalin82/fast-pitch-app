@@ -1,34 +1,54 @@
-<div class='container'>
-<h1 class="block-title"><%=@presenter.name%></h1>
-
-    <ul class="list-group">
-      <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
-        <li class="list-group-item">
-          <%=key%>
-          <%=value%>
-        </li>
-      <%end%>
-    </ul>
-
-    <div class="row">
-      <%=form_tag '/scores/update', method: :patch do %>
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title"><%= @presenter.name %></h1>
+  </div>
+</div>
+<div class="container">
+  <h2><u>Your Current Scores:</u></h2>
+  <ul class="list-group">
+    <%@hash.sort {|a1,a2| a2[1].to_i<=>a1[1].to_i}.each do |key,value|%>
+      <li class="list-group-item">
+        <%=key%>
+        <span class="badge"><%=value%></span>
+      </li>
+    <%end%>
+  </ul>
+</div>
+<div class="container">
+  <br>
+  <h2><u>Presentation Review of <%= @presenter.name %></u></h2>
+  <br>
+  <div class="accordion" id="accordion1">
+    <div class="accordion-group">
+       <div class="accordion-heading">
+         <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion1"  href="#collapseOne">Scoring Guide</a>
+       </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <br>
+      <h3>1 - Inadequate</h3>
+      <h3>2 - Marginal</h3>
+      <h3>3 - Fair</h3>
+      <h3>4 - Good</h3>
+      <h3>5 - Excellent</h3>
+     </div>
+    </div>
+  </div>
+  <div class="row">
+    <%=form_tag '/scores/update', method: :patch do %>
       <%@questions.each do |question| %>
-
         <div class="row">
           <br>
-          <label><%=question.content%></label>
+          <h4><label><%=question.content%>:</label></h4>
+          <div id="scoretag">
+            <%=select_tag :question_points, options_for_select([1,2,3,4,5],question.scores.where(["question_id=? and user_id=?", question.id, @current_user.id]).limit(1).first.points.to_i), prompt: " - Select Score - ",:name => "questions[][points]" %>
+          </div>
+          <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
+          <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
+          <%=hidden_field_tag :questions_user_id, @current_user.id, :name=>"questions[][user_id]"%>
+          <br>
         </div>
-        <div class="row">
-          <%=select_tag :question_points, options_for_select([1,2,3,4,5],question.scores.where(["question_id=? and user_id=?", question.id, @current_user.id]).limit(1).first.points.to_i), prompt: " - Select Score - ",:name => "questions[][points]" %>
-        </div>
-        <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
-        <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
-        <%=hidden_field_tag :questions_user_id, @current_user.id, :name=>"questions[][user_id]"%>
-        <br>
-
       <%end%>
-        <button type="submit">Submit</button>
-<%end%>
-</div>
-
+      <button type="submit" class="btn btn-primary">Submit</button>
+    <%end%>
+  </div>
 </div>

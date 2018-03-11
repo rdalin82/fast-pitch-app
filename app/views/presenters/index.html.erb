@@ -1,19 +1,34 @@
-<div class="jumbotron">
+<div class="jumbo">
   <div class="container">
-    <h1 class="block-title">Presenters</h2>
+    <h1 class="block-title">Presenters</h1>
   </div>
 </div>
+
 <div class="container">
-  <% if @current_user.admin %>
-    <h3><%= link_to "Add Presenter", "/presenters/new" %></h3>
-    <br>
-    <h3><u>Edit Presenters:</u> </h3>
-    <% @presenters.each do |presenter| %>
-      <a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a>
-    <% end %>
-  <% end %>
+<% if @current_user.admin %>
+  <div class="accordion" id="accordion1">
+    <div class="accordion-group">
+       <div class="accordion-heading">
+         <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion1"  href="#collapseOne">Admin Panel</a>
+       </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item"><h3><%= link_to "Add Presenter", "/presenters/new" %></h3></li>
+      </ul>
+      <br>
+      <h3><u>Edit Presenters:</u> </h3>
+      <ul class="list-group">
+        <% @presenters.each do |presenter| %>
+          <li class="list-group-item"><a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a></li>
+        <% end %>
+      </ul>
+     </div>
+    </div>
+  </div>
+<% end %>
 </div>
-<div class="container padding-top">
+<div class="container">
 <br>
 <br>
   <ul class="list-group">
@@ -21,11 +36,11 @@
         <%presenter.ranks.each do |rank|%>
             <%if @current_user.id == rank.user_id && rank.scored == true %>
               <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Edit Presenter Ranking", "/scores/#{presenter.id}/edit", class: "btn btn-primary" %>
+              <%= link_to "Edit Score", "/scores/#{presenter.id}/edit", class: "btn btn-primary" %>
               </li>
             <%elsif @current_user.id == rank.user_id && rank.scored == false%>
               <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Rank Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
+              <%= link_to "Score Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
             </li>
             <%else%>
             <%end%>
