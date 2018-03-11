@@ -26,8 +26,6 @@ Rails.application.routes.draw do
   patch '/questions/:id' => 'questions#update'
   delete '/questions/:id' => 'questions#destroy'
 
-  get '/scores/csv' => 'scores#csv'
-
   get '/scores' => 'scores#index'
   get '/scores/new/:id' => 'scores#new'
   post '/scores' => 'scores#create'

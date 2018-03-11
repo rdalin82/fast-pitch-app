@@ -54,12 +54,4 @@ class ScoresController < ApplicationController
       redirect_to "/comments/#{comment.id}/edit"
     end
   end
-
-  def csv
-    @scores =Score.joins(:presenter).merge(Presenter.order(:name))
-    respond_to do |format|
-      format.html
-      format.csv { send_data @scores.to_csv}
-    end
-  end
 end

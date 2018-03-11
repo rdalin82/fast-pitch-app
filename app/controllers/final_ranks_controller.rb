@@ -23,7 +23,7 @@ class FinalRanksController < ApplicationController
         final_rank: params[:final_rank],
       )
     elsif FinalRank.where(["user_id=? and presenter_id=?",current_user.id,presenter_id]).update(
-      final_rank: params[:final_rank],
+      final_rank: params[:final_rank]
       )
     end
     params.permit!

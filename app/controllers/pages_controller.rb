@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
   def home
+    @current_user = current_user
   end
 
   def index
+    @current_user = current_user
     @scores =Score.joins(:presenter).merge(Presenter.order(:name))
     respond_to do |format|
       format.html

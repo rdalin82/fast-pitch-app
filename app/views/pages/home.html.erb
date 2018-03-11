@@ -3,7 +3,7 @@
         <form class="form login-form">
             <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
             <div class="body">
-            <% if current_user %>
+            <% if @current_user %>
               <%= link_to "Check out our presenters!", "/presenters" %>
               <h4>or</h4>
               <%= link_to "View the leaderboard!", "/scores" %>
