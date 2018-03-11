@@ -14,10 +14,20 @@ class PresentersController < ApplicationController
   end
 
   def create
+    @users = User.all
     @presenter = Presenter.create(
       name: params[:name]
     )
     if @presenter.save
+      @users.each do |user|
+        user.ranks.each do |rank|
+          Rank.create(
+            :scored => false,
+            :user_id=>user.id,
+            :presenter_id => @presenter.id
+        )
+        end
+      end
       flash[:success] = 'Presenter Created!'
       redirect_to '/presenters'
     else

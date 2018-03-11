@@ -3,10 +3,12 @@
         <form class="form login-form">
             <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
             <div class="body">
-            <% if @current_user %>
+            <% if current_user %>
+              <h2>Hi, <%= @current_user.username %>!</h2>
+              <br>
               <%= link_to "Check out our presenters!", "/presenters" %>
               <h4>or</h4>
-              <%= link_to "View the leaderboard!", "/scores" %>
+              <%= link_to "View your final scores and rankings!", "/final_ranks" %>
             <% else %>
               <a href="/login" class="btn btn-blue"> SIGN IN</a>
               <br>
