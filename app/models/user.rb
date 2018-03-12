@@ -4,5 +4,5 @@ class User < ApplicationRecord
   has_many :scores
   has_many :comments
   has_many :ranks
-  has_many :final_ranks
+  has_many :finalRanks
 end

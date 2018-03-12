@@ -4,21 +4,56 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Presenter Name
-          </th>
-
+          <th scope="col">Presenter Name</th>
+          <th scope="col">User First Name</th>
+          <th scope="col">User Surname</th>
           <th scope="col">Question</th>
           <th scope="col">Points for Question</th>
+          <th scope="col">Average of all points</th>
+          <th scope="col">Final Ranks</th>
+
         </tr>
       </thead>
       <%@scores.each do |score|%>
         <tbody>
           <tr>
             <td><%=score.presenter.name%></td>
+            <td><%=score.user.first_name%></td>
+            <td><%=score.user.surname%></td>
             <td><%=score.question.content%></td>
             <td><%=score.points%></td>
+            <td><%=score.presenter.finalRanks.find_by(['user_id=? and presenter_id=?', score.user.id,score.presenter.id]).final_rank%></td>
           </tr>
         </tbody>
+      <%end%>
+    </table>
+
+    <table>
+      <thead>
+        <th scope="col">Presenter Name</th>
+
+      </thead>
+      <%@hash.each do |key,value|%>
+      <tbody>
+
+        <td><%=key%></td>
+        <table>
+          <thead>
+            <th scope="col">First Name</th>
+            <th scope="col">Surame</th>
+            <th scope="col">Points</th>
+          </thead>
+        <%value.each do |key1,value1|%>
+        <tbody>
+        <td><%=User.find(key1).first_name%></td>
+        <td><%=User.find(key1).surname%></td>
+
+        <td><%=value1%></td>
+</tbody>
+        <%end%>
+        </table>
+      </tbody>
+
       <%end%>
     </table>
   </div>

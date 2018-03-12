@@ -121,6 +121,20 @@ presenters.each do |presenter|
 end
 
 scores = [1,2,3,4,5]
+
+users = User.all
+
+presenters.each do |presenter|
+  users.each do |user|
+    FinalRank.create(
+      presenter_id: presenter.id,
+      user_id: user.id,
+      final_rank: scores.sample
+    )
+  end
+end
+
+
 questions =[1,2,3,4,5,6]
 
 40.times do
