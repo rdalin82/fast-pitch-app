@@ -23,9 +23,9 @@
                 <li><a href="/final_ranks">Final Scores and Rankings</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% if @current_user.admin %>
-                  <li><a href="/pages/index">CSV Export</a></li>
+                  <li><a href="/pages/index">CSV - Total</a></li>
+                  <li><a href="/pages/csv">CSV - Avg</a></li>
                   <li><a href="/questions">Questions</a></li>
-                  <li><a href="/scores"></i> Leaderboard</a></li>
                 <% end %>
             <% elsif %>
               <li><a href="/signup"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></i> Sign Up</a></li>
