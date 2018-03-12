@@ -13,15 +13,14 @@
        </div>
     <div id="collapseOne" class="accordion-body collapse">
       <br>
-      <ul class="list-group">
-        <li class="list-group-item-new"><h3><%= link_to "Add Presenter", "/presenters/new" %></h3></li>
-      </ul>
-      <br>
       <h3><u>Edit Presenters:</u> </h3>
       <ul class="list-group">
         <% @presenters.each do |presenter| %>
           <li class="list-group-item-update"><a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a></li>
         <% end %>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item-new"><h3><%= link_to "Add Presenter", "/presenters/new" %></h3></li>
       </ul>
      </div>
     </div>
