@@ -10,28 +10,31 @@ class FinalRanksController < ApplicationController
   end
 
   def new
-    @final_rank = FinalRank.new
     @presenter = Presenter.find_by(id: params[:id])
   end
 
   def create
-    presenter_id = params[:final_ranks][0]['presenter_id']
-    if FinalRank.where(["user_id=? and presenter_id=?",current_user.id,presenter_id]).empty?
-      FinalRank.create(
-        :user_id => current_user.id,
-        :presenter_id => presenter_id,
-        final_rank: params[:final_rank],
-      )
-    elsif FinalRank.where(["user_id=? and presenter_id=?",current_user.id,presenter_id]).update(
+    FinalRank.create(
+      user_id: current_user.id,
+      presenter_id: params[:presenter_id],
       final_rank: params[:final_rank]
-      )
-    end
-    params.permit!
+    )
     respond_to do |format|
-        format.html { redirect_to "/final_ranks" }
-        format.js
-      end
+      format.html { redirect_to '/final_ranks' }
+      format.json { redirect_to '/final_ranks' }
+    end
+  end
 
-
+  def update
+    final_rank = FinalRank.find_by(["presenter_id=? and user_id=?", params[:id], current_user.id])
+    final_rank.update(
+      user_id: current_user.id,
+      presenter_id: params[:presenter_id],
+      final_rank: params[:final_rank]
+    )
+    respond_to do |format|
+      format.html { redirect_to '/final_ranks' }
+      format.json { redirect_to '/final_ranks' }
+    end
   end
 end

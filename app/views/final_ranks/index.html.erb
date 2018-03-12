@@ -20,10 +20,14 @@
           <td><%=presenter.scores.where(["presenter_id=? and user_id=?", presenter.id, @current_user.id]).sum('points')%></td>
           <%if presenter.finalRanks.find_by(["presenter_id=? and user_id=?", presenter.id, @current_user.id]) == nil  %>
             <td>0</td>
-            <td><button class="final_rank_button">button</button></td>
+            <td>
+              <button id="id<%=presenter.id%> "class="final_rank_button">button</button>
+            </td>
             <%else%>
             <td><%=presenter.finalRanks.find_by(["presenter_id=? and user_id=?", presenter.id, @current_user.id]).final_rank %></td>
-            <td><button class="final_rank_button">button</button></td>
+            <td>
+              <button id="id<%=presenter.id%> "class="final_rank_button_update">button</button>
+            </td>
             <%end%>
         </tr>
       <% end %>
