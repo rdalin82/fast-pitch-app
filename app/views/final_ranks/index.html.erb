@@ -1,15 +1,30 @@
-<div class="jumbotron">
+<div class="jumbo">
   <div class="container">
     <h1 class="block-title">Final Scores and Rankings</h1>
   </div>
 </div>
 <div class="container">
+  <br>
+  <div class="accordion" id="accordion1">
+    <div class="accordion-group">
+       <div class="accordion-heading">
+         <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion1"  href="#collapseOne">Ranking Guide</a>
+       </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <br>
+      <h3>Please enter a rank between 1 and <%= @presenters.count %></h3>
+      <h3>(1 being the best and <%= @presenters.count %> being the worst)</h3>
+      <br>
+     </div>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>
         <th>Presenter Name</th>
         <th>Points Given</th>
-        <th>Your Rank</th>
+        <th>Your
+          Rank</th>
       </tr>
     </thead>
 
@@ -20,10 +35,10 @@
           <td><%=presenter.scores.where(["presenter_id=? and user_id=?", presenter.id, @current_user.id]).sum('points')%></td>
           <%if presenter.finalRanks.find_by(["presenter_id=? and user_id=?", presenter.id, @current_user.id]) == nil  %>
             <td>0</td>
-            <td><button class="final_rank_button">button</button></td>
+            <td><button class="final_rank_button">rank!</button></td>
             <%else%>
             <td><%=presenter.finalRanks.find_by(["presenter_id=? and user_id=?", presenter.id, @current_user.id]).final_rank %></td>
-            <td><button class="final_rank_button">button</button></td>
+            <td><button class="final_rank_button">rank!</button></td>
             <%end%>
         </tr>
       <% end %>

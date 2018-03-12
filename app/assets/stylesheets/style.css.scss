@@ -1,0 +1,220 @@
+.container {
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbo {
+    background:url(./bg_slide.png) repeat 0 0 #ebebea;
+    margin: -15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.jumbo .block-title {
+    margin-bottom: 15px;
+    font-variant: small-caps;
+    font-family: 'Shadows Into Light';
+    text-shadow: 2px 2px 2px #000;
+    text-align: center;
+}
+
+.navbar {
+  background-color: white;
+  margin: -15px;
+}
+
+.nav li a {
+    color: black;
+    font-variant: small-caps;
+    font-family: 'Pangolin';
+    font-size: 1.2em;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu {
+  background-color: white;
+  color: black;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  background-color: white;
+  color: cornflowerblue;
+}
+
+.navbar-brand {
+  max-height: 15px;
+  max-width: 30%;
+  padding-top: 0px;
+  padding-bottom: 0;
+}
+
+.img-container {
+  opacity: 0.4;
+  position: absolute;
+  top: -20;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+h1 {
+  color: #303030;
+  font-variant: small-caps;
+  font-family: 'Josefin Sans';
+  text-shadow: 1px 1px 1px #000;
+  font-style: bold;
+  font-size: 5em;
+  letter-spacing: 3px;
+}
+
+h2 {
+  color: #303030;
+  font-family: 'Roboto';
+  font-style: bold;
+  font-size: 2.5em;
+}
+
+h3 {
+  color: #303030;
+  font-family: 'Josefin Sans';
+  font-size: 1.4em;
+}
+
+h4 {
+  color: #303030;
+  font-family: 'Josefin Sans';
+  font-size: 1.3em;
+}
+
+h5 {
+  color: #303030;
+  font-family: 'Roboto';
+  font-size: 1.2em;
+}
+
+select {
+   overflow:hidden;
+   width: 200px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 2px 2px 11px red;
+}
+
+.list-group-item > .badge {
+  float: right;
+}
+
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+
+.list-group {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: rgba(255, 192, 203, 0.4);
+  border: 1.2px solid black;
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1.5em;
+}
+
+.list-group-item-new {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: rgba(225, 255, 255, 0.3);
+  border: 1.2px solid black;
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1.5em;
+}
+
+.list-group-item-update {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: rgba(255, 192, 203, 0.4);
+  border: 1.2px solid black;
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1.5em;
+}
+
+.list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+  color: #303030;
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1.5em;
+
+}
+
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 2;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #777;
+  border-radius: 10px;
+}
+
+.btn {
+  font-family: 'Josefin Sans';
+  font-variant: small-caps;
+  font-size: 1em;
+}
+
+.btn-new {
+  background-color: #00BFFF;
+  color: white;
+}
+
+.btn-update {
+  background-color: #FF4500;
+  color: white;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-family: 'Josefin Sans';
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+td {
+  font-family: 'Pangolin';
+  font-variant: small-caps;
+  font-size: 1.3em;
+  letter-spacing: 2px;
+}
