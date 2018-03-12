@@ -1,31 +1,41 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i> Home</span></a></li>
-        <% if @current_user %>
-          <ul class="nav navbar-nav navbar-left">
-            <li><a href="/presenters"><i class="fas fa-bullhorn" aria-hidden="true"></i> Presenters</a></li>
-            <li><a href="/final_ranks"></i> Final Scores and Rankings</a></li>
-            <li><a href="/logout"><i class="fa-sign-out fa-2x" aria-hidden="true"></i> Logout</a></li>
-          </ul>
-          <% if @current_user.admin %>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin
-              <span class="caret"></span></a>
-                <ul class="dropdown-menu">
+        <li><h1 style="color:white">SVP Fast Pitch!</h1></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/"></i> Home</span></a></li>
+            <% if @current_user %>
+              <ul class="nav navbar-nav navbar-left">
+                <li><a href="/presenters"> Presenters</a></li>
+                <li><a href="/final_ranks">Final Scores and Rankings</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <% if @current_user.admin %>
                   <li><a href="/pages/index">CSV Export</a></li>
                   <li><a href="/questions">Questions</a></li>
                   <li><a href="/scores"></i> Leaderboard</a></li>
-                </ul>
-            </li>
-          <% end %>
-        <% else %>
-          <li><a href="/signup"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></i> Sign Up</a></li>
-          <li><a href="/login"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Sign In</a></li>
-        <% end %>
+                <% end %>
+            <% elsif %>
+              <li><a href="/signup"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></i> Sign Up</a></li>
+              <li><a href="/login"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i> Sign In</a></li>
+            <% end %>
+          </ul>
+        </li>
       </ul>
-
     </div>
   </div>
 </nav>
