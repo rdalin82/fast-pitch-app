@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Table view of average presenter score by user</h1>
+    <table>
+      <thead>
+        <th scope="col">Presenter Name</th>
+      </thead>
+      <%@hash.each do |key,value|%>
+        <tbody>
+          <td><%=key%></td>
+          <table>
+            <thead>
+              <th scope="col">First Name</th>
+              <th scope="col">Surame</th>
+              <th scope="col">Points</th>
+            </thead>
+            <%value.each do |key1,value1|%>
+              <tbody>
+                <td><%=User.find(key1).first_name%></td>
+                <td><%=User.find(key1).surname%></td>
+                <td><%=value1 / Presenter.all.length %></td>
+              </tbody>
+            <%end%>
+          </table>
+        </tbody>
+      <%end%>
+    </table>
+    <br>
+    <br>
+    <a href="/pages/csv.csv">
+      <button class="btn btn-success">export table </button>
+    </a>
+  </div>

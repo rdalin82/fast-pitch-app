@@ -55,7 +55,7 @@ class Score < ApplicationRecord
     hash ={}
     Presenter.all.each do |presenter|
      puts Score.where("presenter_id=?",presenter.id).group('user_id').sum('points')
-     
+
    end
     scores = Score.group('presenter_id').sum(:points)
     scores.each do |key,value|

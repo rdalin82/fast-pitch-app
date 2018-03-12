@@ -9,7 +9,6 @@
           <th scope="col">User Surname</th>
           <th scope="col">Question</th>
           <th scope="col">Points for Question</th>
-          <th scope="col">Average of all points</th>
           <th scope="col">Final Ranks</th>
 
         </tr>
@@ -27,35 +26,10 @@
         </tbody>
       <%end%>
     </table>
-
-    <table>
-      <thead>
-        <th scope="col">Presenter Name</th>
-
-      </thead>
-      <%@hash.each do |key,value|%>
-      <tbody>
-
-        <td><%=key%></td>
-        <table>
-          <thead>
-            <th scope="col">First Name</th>
-            <th scope="col">Surame</th>
-            <th scope="col">Points</th>
-          </thead>
-        <%value.each do |key1,value1|%>
-        <tbody>
-        <td><%=User.find(key1).first_name%></td>
-        <td><%=User.find(key1).surname%></td>
-
-        <td><%=value1%></td>
-</tbody>
-        <%end%>
-        </table>
-      </tbody>
-
-      <%end%>
-    </table>
+    <a href="/pages/index.csv">
+      <button class="btn btn-success">export table </button>
+    </a>
   </div>
-  <a href="/pages/index.csv"><button class="btn btn-success">export all</button></a>
+
+
 </div>
