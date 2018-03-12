@@ -27,6 +27,11 @@ class FinalRanksController < ApplicationController
       )
     end
     params.permit!
-    redirect_to "/final_ranks"
+    respond_to do |format|
+        format.html { redirect_to "/final_ranks" }
+        format.js
+      end
+
+
   end
 end
