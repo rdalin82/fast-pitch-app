@@ -1,4 +1,8 @@
-<div class="container padding-top">
-  <h1> Edit Presenter: </h1>
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title">Edit Presenter</h1>
+  </div>
+</div>
+<div class="container">
   <%= render "form", url: "/presenters/#{@presenter.id}", verb: :patch, message: "Update Presenter" %>
 </div>
