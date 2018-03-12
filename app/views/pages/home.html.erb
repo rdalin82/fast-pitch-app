@@ -1,24 +1,21 @@
-<div class="img-contatiner">
-  <<%=image_tag("fastpitch2.jpg", alt: "" style='width:100%;height:100%' alt="" class="img-container"%>>
-    <div class="container">
-      <div id="login-wraper">
-        <form class="form login-form">
-            <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
-            <div class="body">
-            <% if current_user %>
-              <h2>Hi, <%= @current_user.username %>!</h2>
-              <br>
-              <%= link_to "Check out our presenters!", "/presenters" %>
-              <h4>or</h4>
-              <%= link_to "View your final scores and rankings!", "/final_ranks" %>
-            <% else %>
-              <a href="/login" class="btn btn-blue"> SIGN IN</a>
-              <br>
-              <h4>Don't have an account yet?</h4>
-              <a href="/signup" class="btn btn-blue"> SIGN UP</a>
-            <% end %>
-            </div>
-        </form>
-      </div>
-    </div>
+<div class="container">
+  <div id="login-wraper">
+    <form class="form login-form">
+        <legend>Welcome to <span class="blue">Fast Pitch!</span></legend>
+        <div class="body">
+        <% if current_user %>
+          <h2>Hi, <%= @current_user.username %>!</h2>
+          <br>
+          <%= link_to "Check out our presenters!", "/presenters" %>
+          <h4>or</h4>
+          <%= link_to "View your final scores and rankings!", "/final_ranks" %>
+        <% else %>
+          <a href="/login" class="btn btn-blue"> SIGN IN</a>
+          <br>
+          <h4>Don't have an account yet?</h4>
+          <a href="/signup" class="btn btn-blue"> SIGN UP</a>
+        <% end %>
+        </div>
+    </form>
+  </div>
 </div>

@@ -1,3 +1,5 @@
+//= depend_on_asset "svp-logo.png"
+
 .container {
   padding-right: 20px;
   padding-left: 20px;
@@ -6,11 +8,11 @@
 }
 
 .jumbo {
-    background-image: image-url("<%= asset_path('bg_slide.png') %>") repeat 0 0 #ebebea;
-    margin: -15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+  background: image-url("<%= asset_path('bg_slide.png') %>") repeat 0 0 #ebebea;
+  margin: -15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .jumbo .block-title {
@@ -50,14 +52,20 @@
   padding-bottom: 0;
 }
 
+.logo {
+  background-image:url('<%= asset_path("svp-logo.png") %> ');
+}
+
 .img-container {
-  opacity: 0.4;
-  position: absolute;
-  top: -20;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-image {
+  opacity: 0.6;
+  max-width: 50px;
+  max-height: 70px;
 }
 
 h1 {
