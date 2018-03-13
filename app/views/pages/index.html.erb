@@ -19,7 +19,11 @@
             <td><%=score.user.surname%></td>
             <td><%=score.question.content%></td>
             <td><%=score.points%></td>
-            <td><%=score.presenter.finalRanks.find_by(['user_id=? and presenter_id=?', score.user.id,score.presenter.id]).final_rank%></td>
+            <%if score.presenter.finalRanks.find_by("user_id=? and presenter_id=?", score.user.id,score.presenter.id)== nil %>
+            <td>0</td>
+            <%else%>
+            <td><%=score.presenter.finalRanks.find_by("user_id=? and presenter_id=?", score.user.id,score.presenter.id).final_rank %></td>
+            <%end%>
           </tr>
         </tbody>
       <%end%>
