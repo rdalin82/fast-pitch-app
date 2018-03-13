@@ -1,8 +1,5 @@
 class ScoresController < ApplicationController
   before_action :authenticate_user!
-  def index
-    @hash = Score.sum_presenters_new(current_user.id)
-  end
 
   def new
     @hash =Score.sum_presenters_new(current_user.id)

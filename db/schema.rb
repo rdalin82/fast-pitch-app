@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313031435) do
+ActiveRecord::Schema.define(version: 20180313035623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(version: 20180313031435) do
 
   create_table "presenters", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "ranked",     default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "question_presenters", force: :cascade do |t|
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180313031435) do
     t.boolean  "scored"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "final_rank"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -85,7 +83,6 @@ ActiveRecord::Schema.define(version: 20180313031435) do
     t.boolean  "admin",           default: false
     t.string   "first_name"
     t.string   "surname"
-    t.boolean  "ranked",          default: false
   end
 
 end
