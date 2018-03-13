@@ -1,4 +1,4 @@
-$(document).ready(callAll)
+$(document).ready(callAll);
 
 $(document).on('turbolinks:load', function () {
   callAll();
@@ -45,7 +45,7 @@ function callAll() {
         data: { final_rank: data[i].value, presenter_id: presenterId },
         success: function () {
 
-        }
+        },
       });
     }
   }
