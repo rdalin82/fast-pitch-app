@@ -8,7 +8,7 @@ class Score < ApplicationRecord
       csv << ["presenter_name","first_name","surname", "question", "points_for_question"]
       scores = Score.joins(:presenter,:user,:question)
       scores.each do |score|
-        csv <<  [score.presenter.name, score.user.first_name,score.user.surname, score.question.content, score.points]
+        csv <<  [score.presenter.name, score.user.first_name, score.user.surname, score.question.content, score.points]
       end
     end
   end

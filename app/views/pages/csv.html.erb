@@ -12,12 +12,19 @@
               <th scope="col">First Name</th>
               <th scope="col">Surame</th>
               <th scope="col">Points</th>
+              <th scope="col">Final rank</th>
             </thead>
             <%value.each do |key1,value1|%>
               <tbody>
                 <td><%=User.find(key1).first_name%></td>
                 <td><%=User.find(key1).surname%></td>
                 <td><%=value1 / Presenter.all.length %></td>
+                <% presenter_id = Presenter.find_by("name=?", key).id%>
+                <% if FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id)== nil %>
+                <td>0</td>
+                <%else%>
+                <td><%=FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id).final_rank%></td>
+                <%end%>
               </tbody>
             <%end%>
           </table>

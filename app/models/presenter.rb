@@ -15,9 +15,15 @@ class Presenter < ApplicationRecord
       end
       hash.each do |key,value|
         csv <<  [key]
-          csv << ["first_name","surname","points"]
+          csv << ["first_name","surname","points","final_rank"]
           value.each do |key1,value1|
-            csv << [User.find(key1).first_name, User.find(key1).surname, value1 / presenters.length  ]
+            presenter_id = Presenter.find_by("name=?", key).id
+            if FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id)== nil
+              final = 0
+            else
+              final = FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id).final_rank
+            end
+            csv << [User.find(key1).first_name, User.find(key1).surname, value1 / presenters.length, final ]
           end
       end
     end
