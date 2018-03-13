@@ -43,9 +43,6 @@ function callAll() {
         type: 'POST',
         url: '/final_ranks',
         data: { final_rank: data[i].value, presenter_id: presenterId },
-        success: function () {
-
-        },
       });
     }
   }

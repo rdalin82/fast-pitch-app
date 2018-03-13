@@ -38,7 +38,7 @@
           <br>
           <h4><label><%=question.content%>:</label></h4>
           <div id="scoretag">
-            <%=select_tag :question_points, options_for_select([1,2,3,4,5],question.scores.where(["question_id=? and user_id=?", question.id, @current_user.id]).limit(1).first.points.to_i), prompt: " - Select Score - ",:name => "questions[][points]" %>
+            <%=select_tag :question_points, options_for_select([1,2,3,4,5],question.scores.find_by("question_id=? and user_id=? and presenter_id=?", question.id, @current_user.id,@presenter.id).points), prompt: " - Select Score - ",:name => "questions[][points]" %>
           </div>
           <%=hidden_field_tag :questions_question_id, question.id, :name=>"questions[][question_id]"%>
           <%=hidden_field_tag :questions_presenter_id, @presenter.id, :name=>"questions[][presenter_id]"%>
