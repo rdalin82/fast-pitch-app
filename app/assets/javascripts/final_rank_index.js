@@ -1,8 +1,8 @@
-$(document).ready(callAll);
+$(document).ready(callAll)
 
-$(document).ajaxComplete(function () {
-    callAll();
-  });
+$(document).on('turbolinks:load', function () {
+  callAll();
+});
 
 function callAll() {
   const button = document.querySelectorAll('.final_rank_button');
@@ -44,10 +44,8 @@ function callAll() {
         url: '/final_ranks',
         data: { final_rank: data[i].value, presenter_id: presenterId },
         success: function () {
-          for (var i = 0; i < button.length; i++) {
-            button[i].addEventListener('click', showForm);
-          }
-        },
+
+        }
       });
     }
   }
@@ -59,11 +57,6 @@ function callAll() {
         type: 'PATCH',
         url: `/final_ranks/${presenterId}`,
         data: { final_rank: data[i].value, presenter_id: presenterId },
-        success: function () {
-          for (var i = 0; i < buttonUpdate.length; i++) {
-            buttonUpdate[i].addEventListener('click', showForm2);
-          };
-        },
       });
     }
   }
