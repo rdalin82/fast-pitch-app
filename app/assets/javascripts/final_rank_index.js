@@ -13,7 +13,7 @@ function callAll() {
     this.outerHTML = `
       <label>Please enter a final rank</label>
       <input class="info_i_need" type='number' style="width:90px">
-      <button class="button_submit btn btn-primary" type='submit'>Submit</button>`;
+      <button class="button_submit btn btn-new" type='submit'>Submit</button>`;
     const submitButton = document.querySelectorAll('.button_submit');
     for (var i = 0; i < submitButton.length; i++) {
       submitButton[i].addEventListener('click', function () {

@@ -1,16 +1,17 @@
-<div class="jumbotron">
+<div class="jumbo">
   <div class="container">
     <h1 class="block-title">Questions</h2>
   </div>
 </div>
 <div class="container">
   <% if @current_user.admin %>
-    <h3><%= link_to "Add Question", "/questions/new" %></h3>
+    <ul class="list-group">
+      <li class="list-group-item-new"><h3><%= link_to "Add Question", "/questions/new" %></h3></li>
     <br>
     <h3><u> Edit Questions: </u></h3>
     <ul class="list-group">
       <% @questions.each do |question| %>
-        <li class="list-group-item"><a href="/questions/<%= question.id %>"><h3><%= question.content %> </h3></a></li>
+        <li class="list-group-item-update"><a href="/questions/<%= question.id %>"><h3><%= question.content %> </h3></a></li>
       <% end %>
   <% end %>
 </div>

@@ -1,9 +1,9 @@
-<div class="page-header">
-  <h1><%= @presenter.name %>
-  </h1>
-  <div class="right">
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title"><%= @presenter.name %></h1>
+  </div>
 </div>
-<div>
+<div class="container">
 <br>
 <% if @current_user.admin %>
   <%= link_to "Edit Presenter", "/presenters/#{@presenter.id}/edit", class: "btn btn-success" %>

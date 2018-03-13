@@ -2,19 +2,6 @@ html {
   height: 100%;
 }
 
-
-body {
-  background-image: image-url('fastpitch1.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-@media (min-width: 979px) {
-  body {
-  }
-}
-
 .blue {
   color: #447fc8;
 }

@@ -13,15 +13,14 @@
        </div>
     <div id="collapseOne" class="accordion-body collapse">
       <br>
-      <ul class="list-group">
-        <li class="list-group-item"><h3><%= link_to "Add Presenter", "/presenters/new" %></h3></li>
-      </ul>
-      <br>
       <h3><u>Edit Presenters:</u> </h3>
       <ul class="list-group">
         <% @presenters.each do |presenter| %>
-          <li class="list-group-item"><a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a></li>
+          <li class="list-group-item-update"><a href="/presenters/<%= presenter.id %>"><h3><%= presenter.name %> </h3></a></li>
         <% end %>
+      </ul>
+      <ul class="list-group">
+        <li class="list-group-item-new"><h3><%= link_to "Add Presenter", "/presenters/new" %></h3></li>
       </ul>
      </div>
     </div>
@@ -35,12 +34,12 @@
       <% @presenters.each do |presenter| %>
         <%presenter.ranks.each do |rank|%>
             <%if @current_user.id == rank.user_id && rank.scored == true %>
-              <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Edit Score", "/scores/#{presenter.id}/edit", class: "btn btn-primary" %>
+              <li class="list-group-item-update"><h3><%= presenter.name %> </h3>
+              <%= link_to "Edit Score", "/scores/#{presenter.id}/edit", class: "btn btn-update" %>
               </li>
             <%elsif @current_user.id == rank.user_id && rank.scored == false%>
-              <li class="list-group-item"><h3><%= presenter.name %> </h3>
-              <%= link_to "Score Presenter", "/scores/new/#{presenter.id}", class: "btn btn-success" %>
+              <li class="list-group-item-new"><h3><%= presenter.name %> </h3>
+              <%= link_to "Score Presenter", "/scores/new/#{presenter.id}", class: "btn btn-new" %>
             </li>
             <%else%>
             <%end%>
