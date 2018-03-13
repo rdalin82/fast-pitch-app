@@ -13,6 +13,7 @@ class PagesController < ApplicationController
   end
 
   def csv
+    @current_user = current_user
     @hash = {}
     presenters = Presenter.all
     Presenter.all.each do |presenter|
