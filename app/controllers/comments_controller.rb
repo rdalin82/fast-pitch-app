@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   def new
+    @presenter = Presenter.find(params[:id])
   end
 
   def create
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find_by("id=?",params[:id])
+    @presenter = Presenter.find(params[:id])
   end
 
   def update

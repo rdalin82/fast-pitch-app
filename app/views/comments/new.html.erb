@@ -1,5 +1,11 @@
-<h2>Leave a comment about the presenter</h2>
-<hr>
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title"><%= @presenter.name %></h1></h2>
+  </div>
+</div>
+<div class="container">
+  <h2>Please leave a comment about the presenter:</h2>
+</div>
 
 <div class="container">
   <%=form_tag '/comments', method: :post do %>
