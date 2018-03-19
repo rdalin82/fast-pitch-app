@@ -38,12 +38,12 @@ class ScoresController < ApplicationController
 
   def update
     params.permit!
+    presenter_id = params[:questions][0]['presenter_id']
     params[:questions].each do |score_params|
-      score = Score.find_by(['question_id=? and user_id=?',score_params['question_id'],current_user.id])
+      score = Score.find_by(['question_id=? and user_id=? and presenter_id=?',score_params['question_id'],current_user.id,presenter_id])
       score.update(score_params)
     end
 
-    presenter_id = params[:questions][0]['presenter_id']
     comment = Comment.find_by(["presenter_id=? and user_id=?", presenter_id, current_user.id])
     if comment == nil
       redirect_to "/comments/new/#{presenter_id}"
