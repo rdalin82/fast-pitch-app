@@ -15,8 +15,8 @@ class ScoresController < ApplicationController
       rank.update(
         :scored => true
       )
-    elsif rank.empty?
-      rank.create(
+    else
+      Rank.create(
         :user_id => current_user.id,
         :presenter_id => presenter_id,
         :scored => true
