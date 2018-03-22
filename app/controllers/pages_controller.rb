@@ -15,6 +15,11 @@ class PagesController < ApplicationController
   def csv
     @current_user = current_user
     @hash = {}
+    @presenters = Presenter.all
+    @users = User.all
+    @final_ranks = FinalRank.all
+    @avg_score = FinalRank.group('presenter_id').sum(:final_rank)
+    puts @avg_score
     presenters = Presenter.all
     Presenter.all.each do |presenter|
       @hash[presenter.name] = Score.where("presenter_id=?",presenter.id).group('user_id').sum('points')

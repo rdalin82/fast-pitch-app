@@ -1,39 +1,44 @@
 <div class="container">
   <h1>Table view of average presenter score by user</h1>
-    <table>
-      <thead>
-        <th scope="col">Presenter Name</th>
-      </thead>
-      <%@hash.each do |key,value|%>
-        <tbody>
-          <td><%=key%></td>
-          <table>
-            <thead>
-              <th scope="col">First Name</th>
-              <th scope="col">Surame</th>
-              <th scope="col">Points</th>
-              <th scope="col">Final rank</th>
-            </thead>
-            <%value.each do |key1,value1|%>
-              <tbody>
-                <td><%=User.find(key1).first_name%></td>
-                <td><%=User.find(key1).surname%></td>
-                <td><%=value1 / Presenter.all.length %></td>
-                <% presenter_id = Presenter.find_by("name=?", key).id%>
-                <% if FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id)== nil %>
-                <td>0</td>
-                <%else%>
-                <td><%=FinalRank.find_by("user_id=? and presenter_id=?", key1, presenter_id).final_rank%></td>
-                <%end%>
-              </tbody>
-            <%end%>
-          </table>
-        </tbody>
+  <table>
+    <thead>
+      <th scope="col">Coach Name</th>
+      <%@presenters.each do |presenter|%>
+        <th scope="col"><%=presenter.name%></th>
       <%end%>
-    </table>
-    <br>
-    <br>
-    <a href="/pages/csv.csv">
-      <button class="btn btn-success">export table </button>
-    </a>
-  </div>
+    </thead>
+    <tbody>
+      <%@users.each do |user|%>
+        <tr>
+          <td><%=user.first_name%></td>
+          <%@presenters.each do |presenter|%>
+            <%if presenter.finalRanks.find_by(["user_id=? and presenter_id=?",user.id,presenter.id])=== nil%>
+              <td>0</td>
+            <%else%>
+              <td><%= presenter.finalRanks.find_by(["user_id=? and presenter_id=?",user.id,presenter.id]).final_rank%></td>
+            <%end%>
+          <%end%>
+        </tr>
+      <%end%>
+      <tr>
+        <td>Average Score</td>
+        <%@presenters.each do |presenter|%>
+          <% if presenter.finalRanks.find_by("presenter_id=?",presenter.id) != nil%>
+          <% presenter.finalRanks.group("presenter_id").sum(:final_rank).each do |key,value|%>
+          <td><%=(value.to_f / @users.length.to_f).to_f %></td>
+          <%end%>
+          <%else%>
+          <td>0</td>
+          <%end%>
+        <%end%>
+      </tr>
+    </tbody>
+
+  </table>
+  <br>
+  <br>
+  <a href="/pages/csv.csv">
+    <button class="btn btn-success">export table
+    </button>
+  </a>
+</div>
