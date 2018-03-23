@@ -1,11 +1,15 @@
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title">Form Responses</h1>
+  </div>
+</div>
 <div class="container">
-  <h1>Table view of all judges scores</h1>
   <div>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">Presenter Name</th>
-          <th scope="col">User Surname</th>
+          <th scope="col">Coach</th>
           <th scope="col">Question</th>
           <th scope="col">Points for Question</th>
 
@@ -15,17 +19,16 @@
         <tbody>
           <tr>
             <td><%=score.presenter.name%></td>
-            <td><%=score.user.surname%></td>
+            <td><%=score.user.fullname%></td>
             <td><%=score.question.content%></td>
             <td><%=score.points%></td>
           </tr>
         </tbody>
       <%end%>
     </table>
-    <a href="/pages/index.csv">
+    <a href="/pages/csv_form_responses.csv">
       <button class="btn btn-success">export table </button>
     </a>
   </div>
-
-
 </div>
+

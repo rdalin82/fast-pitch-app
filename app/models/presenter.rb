@@ -1,4 +1,5 @@
 class Presenter < ApplicationRecord
+  has_many :question_presenters
   has_many :questions, through: :question_presenter
   has_many :comments
   has_many :scores
@@ -30,11 +31,11 @@ class Presenter < ApplicationRecord
 
 
 
-      other_array =["Average Score"]
+      other_array =["Average Rank"]
       Presenter.all.each do |presenter|
         if presenter.finalRanks.find_by("presenter_id=?",presenter.id) != nil
           presenter.finalRanks.group("presenter_id").sum(:final_rank).each do |key,value|
-          avg_final = (value.to_f / User.all.length.to_f).to_f
+          avg_final = (value.to_f / User.all.length.to_f).to_f.round(2)
           other_array << avg_final
         end
 

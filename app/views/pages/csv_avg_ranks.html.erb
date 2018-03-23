@@ -1,5 +1,10 @@
+<div class="jumbo">
+  <div class="container">
+    <h1 class="block-title">Average Ranks</h1>
+  </div>
+</div>
 <div class="container">
-  <h1>Table view of average presenter score by user</h1>
+  <h2><u>Table View of Average Presenter Score by User:</u></h2>
   <table>
     <thead>
       <th scope="col">Coach Name</th>
@@ -21,11 +26,11 @@
         </tr>
       <%end%>
       <tr>
-        <td>Average Score</td>
+        <td>Average Rank</td>
         <%@presenters.each do |presenter|%>
           <% if presenter.finalRanks.find_by("presenter_id=?",presenter.id) != nil%>
           <% presenter.finalRanks.group("presenter_id").sum(:final_rank).each do |key,value|%>
-          <td><%=(value.to_f / @users.length.to_f).to_f %></td>
+          <td><%=(value.to_f / @users.length.to_f).to_f.round(2) %></td>
           <%end%>
           <%else%>
           <td>0</td>
@@ -37,7 +42,7 @@
   </table>
   <br>
   <br>
-  <a href="/pages/csv.csv">
+  <a href="/pages/csv_avg_ranks.csv">
     <button class="btn btn-success">export table
     </button>
   </a>

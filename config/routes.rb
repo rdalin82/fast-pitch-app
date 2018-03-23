@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/' => 'pages#home'
-  get '/pages/index' => 'pages#index'
-  get '/pages/csv' => 'pages#csv'
+  get '/pages/csv_form_responses' => 'pages#csv_form_responses'
+  get '/pages/csv_avg_scores' => 'pages#csv_avg_scores'
+  get '/pages/csv_avg_ranks' => 'pages#csv_avg_ranks'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

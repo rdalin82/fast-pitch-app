@@ -82,23 +82,23 @@ Presenter.create!(
   name: 'Project Exploration'
 )
 
-user1=User.create!(
-  first_name: 'Leif',
-  surname:'Nesse',
-  username:'Leif',
-  password: 'password'
-)
+# user1=User.create!(
+#   first_name: 'Leif',
+#   surname:'Nesse',
+#   username:'Leif',
+#   password: 'password'
+# )
 
-presenters = Presenter.all
+# presenters = Presenter.all
 
-presenters.each do |presenter|
-  Rank.create!(
-    user_id: user1.id,
-    presenter_id: presenter.id,
-    scored: false
-)
+# presenters.each do |presenter|
+#   Rank.create!(
+#     user_id: user1.id,
+#     presenter_id: presenter.id,
+#     scored: false
+# )
 
-end
+# end
 # user2=User.create!(
 #   first_name: 'John',
 #   surname: 'Johnoson',
